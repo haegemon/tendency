@@ -1,3 +1,10 @@
 /vendor
 /node_modules
 .env
+.idea
+
+node_modules
+public/css/welcom.css.map
+public/packages
+composer.lock
+storage
