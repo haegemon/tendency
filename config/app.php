@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'Asia/Tokyo',
+	'timezone' => 'Europe/Moscow',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'ja',
+	'locale' => 'en',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -150,7 +150,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-
+        'Frozennode\Administrator\AdministratorServiceProvider',
 	],
 
 	/*
