@@ -151,6 +151,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
         'Frozennode\Administrator\AdministratorServiceProvider',
+        'willvincent\Feeds\FeedsServiceProvider',
 	],
 
 	/*
@@ -201,7 +202,7 @@ return [
 
 		'InputModel'      => 'LaravelPlus\Extension\Specs\InputModel',
 		'FormModel'       => 'LaravelPlus\Extension\Specs\FormModel',
-
+        'Feeds'    => 'willvincent\Feeds\Facades\Feeds',
 	],
 
 ];
