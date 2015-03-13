@@ -202,7 +202,7 @@ return [
 
 		'InputModel'      => 'LaravelPlus\Extension\Specs\InputModel',
 		'FormModel'       => 'LaravelPlus\Extension\Specs\FormModel',
-        'Feeds'    => 'willvincent\Feeds\Facades\Feeds',
+        'Feeds'    => 'willvincent\Feeds\Facades\FeedsFacade',
 	],
 
 ];

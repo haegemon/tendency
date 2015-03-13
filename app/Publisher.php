@@ -9,4 +9,8 @@ class Publisher extends Model {
         return $this->hasMany('App\Material');
     }
 
+    public function feeds(){
+        return $this->hasMany('App\Feed');
+    }
+
 }
