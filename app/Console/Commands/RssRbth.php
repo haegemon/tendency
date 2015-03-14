@@ -43,10 +43,6 @@ class RssRbth extends Command {
         foreach( $rbth->feeds as $feed) {
             $feedData = \Feeds::make($feed->alias);
             foreach ($feedData->get_items() as $item) {
-//                $material = Material::where('alias','=', trim($item->get_permalink()))->first();
-//                if ($material) {
-//                    continue;
-//                }
                 $material = Material::firstOrNew(['alias' => $item->get_permalink()]);
                 $material->title = $item->get_title();
                 $material->publisher()->associate($rbth);
