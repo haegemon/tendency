@@ -16,6 +16,11 @@ return array(
     'columns' => array(
         'id',
         'title',
+        'publisher' => [
+            'type' => 'relationship',
+            'title' => 'Publisher',
+            'name_field' => 'title', //what column or accessor on the other table you want to use to represent this object
+        ],
         'alias',
         'is_used',
         'updated_at'

@@ -16,8 +16,14 @@ return array(
     'columns' => array(
         'id',
         'title',
+        'description',
         'alias',
-        'updated_at'
+        'updated_at',
+        'publisher' => array(
+            'type' => 'relationship',
+            'title' => 'Publisher',
+            'name_field' => 'title', //what column or accessor on the other table you want to use to represent this object
+        )
     ),
     /**
      * The filter set

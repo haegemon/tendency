@@ -45,6 +45,7 @@ class RssRbth extends Command {
             foreach ($feedData->get_items() as $item) {
                 $material = Material::firstOrNew(['alias' => $item->get_permalink()]);
                 $material->title = $item->get_title();
+                $material->description = $item->get_description();
                 $material->publisher()->associate($rbth);
                 $material->is_published = !is_null($material->is_published) ? : 1;
                 $material->save();
