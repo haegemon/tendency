@@ -7,9 +7,9 @@
  */
 
 return array(
-    'title' => 'Materials',
-    'single' => 'Material',
-    'model' => 'App\Material',
+    'title' => 'Themes',
+    'single' => 'theme',
+    'model' => 'App\Theme',
     /**
      * The display columns
      */
@@ -17,12 +17,8 @@ return array(
         'id',
         'title',
         'alias',
+        'is_published',
         'updated_at',
-        'publisher' => array(
-            'type' => 'relationship',
-            'title' => 'Publisher',
-            'name_field' => 'title', //what column or accessor on the other table you want to use to represent this object
-        )
     ),
     /**
      * The filter set
@@ -31,7 +27,7 @@ return array(
         'id',
         'title',
         'alias',
-        'updated_at',
+        'is_published',
     ),
     /**
      * The editable fields
@@ -40,6 +36,15 @@ return array(
         'title' => array(
             'title' => 'Title',
             'type' => 'text',
+        ),
+        'alias' => array(
+            'title' => 'Alias',
+            'type' => 'text',
+        ),
+        'tags' => array(
+            'title' => 'Tags',
+            'type' => 'relationship',
+            'name_field' => 'title'
         ),
         'is_published' => array(
             'title' => 'Is published',

@@ -152,6 +152,7 @@ return [
 		'App\Providers\RouteServiceProvider',
         'Frozennode\Administrator\AdministratorServiceProvider',
         'willvincent\Feeds\FeedsServiceProvider',
+        "Khill\Lavacharts\Laravel\LavachartsServiceProvider"
 	],
 
 	/*

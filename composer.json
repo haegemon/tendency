@@ -13,7 +13,8 @@
 		"barryvdh/laravel-debugbar": "~2.0",
         "frozennode/administrator": "5.*",
 		"willvincent/feeds": "1.0.1",
-		"doctrine/dbal": "2.6.x-dev"
+		"doctrine/dbal": "2.6.x-dev",
+		"khill/lavacharts": "2.3.x-dev"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
