@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Material;
 class HomeController extends Controller {
 
 	/*
@@ -32,5 +33,39 @@ class HomeController extends Controller {
 	{
 		return view('home');
 	}
+
+    /**
+     * Show the application dashboard to the user.
+     *
+     * @return Response
+     */
+    public function compare()
+    {
+        $materials = Material::where('updated_at', '>', date("Y-m-d",strtotime("-1 week")))->get();
+        $matetrialAtDay = [];
+        foreach ($materials as $material) {
+            if (!array_key_exists($material->updated_at,$matetrialAtDay)) {
+                $matetrialAtDay[$material->updated_at] = [];
+            }
+            if (!array_key_exists($material->publisher->title,$matetrialAtDay[$material->updated_at])) {
+                $matetrialAtDay[$material->updated_at][$material->publisher->title] = 0;
+            }
+            $matetrialAtDay[$material->updated_at][$material->publisher->title] += 1;
+        }
+
+        $stocksTable = Lava::DataTable();  // Lava::DataTable() if using Laravel
+        $stocksTable->addDateColumn('Date')
+            ->addNumberColumn('RBTH')
+            ->addNumberColumn('NY times');
+        foreach ($matetrialAtDay as $day => $value) {
+            $stocksTable->addRow(array('$day', $value['RBTH'], $value['NY times']));
+        }
+        $lineChart = $stocksTable->LineChart('Stocks')
+            ->setOptions(array(
+                'datatable' => $stocksTable,
+                'title' => 'Trends'
+            ));
+        return view('home');
+    }
 
 }
