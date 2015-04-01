@@ -15,14 +15,15 @@ return array(
      */
     'columns' => array(
         'id',
+        'publisher' => [
+            'relationship' => 'Publisher',
+            'title' => 'Publisher',
+            'select' => '(:table).title',
+        ],
         'title',
         'alias',
         'updated_at',
-        'publisher' => array(
-            'type' => 'relationship',
-            'title' => 'Publisher',
-            'name_field' => 'title', //what column or accessor on the other table you want to use to represent this object
-        )
+
     ),
     /**
      * The filter set

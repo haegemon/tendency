@@ -17,9 +17,9 @@ return array(
         'id',
         'title',
         'publisher' => [
-            'type' => 'relationship',
+            'relationship' => 'Publisher',
             'title' => 'Publisher',
-            'name_field' => 'title', //what column or accessor on the other table you want to use to represent this object
+            'select' => '(:table).title',
         ],
         'alias',
         'is_used',

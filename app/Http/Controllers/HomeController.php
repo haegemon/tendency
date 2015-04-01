@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Material;
+
 class HomeController extends Controller {
 
 	/*
@@ -65,7 +66,7 @@ class HomeController extends Controller {
                 'datatable' => $stocksTable,
                 'title' => 'Trends'
             ));
-        return view('home');
+        return view('graphs', ['lineChart' => $lineChart]);
     }
 
 }
