@@ -43,32 +43,34 @@ class HomeController extends Controller {
      */
     public function compare()
     {
-        $materials = Material::where('updated_at', '>', date("Y-m-d",strtotime("-1 week")))->get();
-        $matetrialAtDay = [];
+        //$materials = Material::where('updated_at', '>', date("Y-m-d",strtotime("-1 week")))->get();
+        $materials = Material::all();
+        $mateterialAtDay = [];
         foreach ($materials as $material) {
-            if (!array_key_exists($material->updated_at,$matetrialAtDay)) {
-                $matetrialAtDay[$material->updated_at] = [];
+            if (!array_key_exists($material->updated_at->toDateString(),$mateterialAtDay)) {
+                $mateterialAtDay[$material->updated_at->toDateString()] = [];
             }
-            if (!array_key_exists($material->publisher->title,$matetrialAtDay[$material->updated_at])) {
-                $matetrialAtDay[$material->updated_at][$material->publisher->title] = 0;
+            if (!array_key_exists($material->publisher->title,$mateterialAtDay[$material->updated_at->toDateString()])) {
+                $mateterialAtDay[$material->updated_at->toDateString()][$material->publisher->title] = 0;
             }
-            $matetrialAtDay[$material->updated_at][$material->publisher->title] += 1;
+            $mateterialAtDay[$material->updated_at->toDateString()][$material->publisher->title] += 1;
         }
 
         $lava = new Lavacharts;
-        $stocksTable = $lava->DataTable();  // Lava::DataTable() if using Laravel
-        $stocksTable->addDateColumn('Date')
+
+        $stocksTable = $lava->DataTable();
+        $stocksTable->addStringColumn('Date')
             ->addNumberColumn('RBTH')
             ->addNumberColumn('NY times');
-        foreach ($matetrialAtDay as $day => $value) {
-            $stocksTable->addRow(array('$day', $value['RBTH'], $value['NY times']));
+        foreach ($mateterialAtDay as $day => $value) {
+            $stocksTable->addRow(array($day, isset($value['RBTH'])? $value['RBTH'] : 0, isset($value['NY times'])? $value['NY times'] : 0));
         }
-        $lineChart = $lava->LineChart('Stocks')
-            ->setOptions(array(
+        $lineChart = $lava->LineChart('Stocks');
+            $lineChart->setOptions(array(
                 'datatable' => $stocksTable,
                 'title' => 'Trends'
             ));
-        return view('graphs', ['lineChart' => $lineChart]);
+        return view('graphs', ['lineChart' => $lineChart, 'lava' => $lava]);
     }
 
 }
