@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Material;
+use Khill\Lavacharts\Lavacharts;
 
 class HomeController extends Controller {
 
@@ -54,14 +55,15 @@ class HomeController extends Controller {
             $matetrialAtDay[$material->updated_at][$material->publisher->title] += 1;
         }
 
-        $stocksTable = Lava::DataTable();  // Lava::DataTable() if using Laravel
+        $lava = new Lavacharts;
+        $stocksTable = $lava->DataTable();  // Lava::DataTable() if using Laravel
         $stocksTable->addDateColumn('Date')
             ->addNumberColumn('RBTH')
             ->addNumberColumn('NY times');
         foreach ($matetrialAtDay as $day => $value) {
             $stocksTable->addRow(array('$day', $value['RBTH'], $value['NY times']));
         }
-        $lineChart = $stocksTable->LineChart('Stocks')
+        $lineChart = $lava->LineChart('Stocks')
             ->setOptions(array(
                 'datatable' => $stocksTable,
                 'title' => 'Trends'
