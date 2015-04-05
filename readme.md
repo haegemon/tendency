@@ -1,31 +1,23 @@
-## Laravel PHPフレームワーク 日本語スケルトン版
+## Laravel PHP Framework
 
-### インストール方法
+[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
+[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-#### Laravel5.0 (リリース版)
-```Console
-$ composer create-project laravel-plus/laravel5 <directory>
-```
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-### 本家版との違い
+Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-以下のものが標準で組み込まれています。
-- パッケージ指定
-	- [Socialite - laravel/socialite](http://github.com/laravel/socialite)
-	- [Illuminate/html - illuminate/html](http://github.com/illuminate/html)
-	- [Extension Pack - laravel-plus/extension](http://github.com/jumilla/laravel-extension)
-	- [Debugbar - barryvdh/laravel-debugbar](http://github.com/barryvdh/laravel-debugbar)
-- 追加コマンド (Extension)
-	- addon:setup
-	- addon:make
-	- addon:check
-	- app:container
-	- hash:make
-	- hash:check
-	- route (Laravel4互換)
-	- tail (Laravel4互換、`app.log=daily`対応)
-- (予定)日本語リソース (lang/ja)
+## Official Documentation
 
-### ライセンス
+Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+
+### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

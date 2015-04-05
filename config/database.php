@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'default' => env('DB_DRIVER', 'mysql'),
+	'default' => 'mysql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ return [
 
 		'sqlite' => [
 			'driver'   => 'sqlite',
-			'database' => storage_path().'/sqlite/'.env('DB_FILENAME'),
+			'database' => storage_path().'/database.sqlite',
 			'prefix'   => '',
 		],
 

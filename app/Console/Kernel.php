@@ -1,7 +1,7 @@
 <?php namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
-use LaravelPlus\Extension\ConsoleKernel as ConsoleKernel;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel {
 
@@ -12,8 +12,6 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected $commands = [
 		'App\Console\Commands\Inspire',
-		'App\Console\Commands\RssRbth',
-		'App\Console\Commands\RssNYTime',
 	];
 
 	/**
@@ -24,8 +22,8 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected function schedule(Schedule $schedule)
 	{
-        $schedule->command('rss:rbth') ->everyThirtyMinutes();
-        $schedule->command('rss:nytime')->everyThirtyMinutes();
+		$schedule->command('inspire')
+				 ->hourly();
 	}
 
 }

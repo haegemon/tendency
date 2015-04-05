@@ -137,12 +137,6 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 
 		/*
-		 * 3rd party Service Providers...
-		 */
-		'LaravelPlus\Extension\ServiceProvider',
-		'Barryvdh\Debugbar\ServiceProvider',
-
-		/*
 		 * Application Service Providers...
 		 */
 		'App\Providers\AppServiceProvider',
@@ -201,9 +195,7 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
-		'InputModel'      => 'LaravelPlus\Extension\Specs\InputModel',
-		'FormModel'       => 'LaravelPlus\Extension\Specs\FormModel',
-        'Feeds'    => 'willvincent\Feeds\Facades\FeedsFacade',
+        'Feeds'    => 'willvincent\Feeds\Facades\FeedsFacade'
 	],
 
 ];
